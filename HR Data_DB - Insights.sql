@@ -8,7 +8,7 @@ SELECT
 	(SELECT 
 		 COUNT(attrition) 
 	 FROM hrdata 
-	 WHERE attrition = 'Yes') as Employee_Active
+	 WHERE attrition = 'Yes') AS Employee_Active
 FROM hrdata
 
 /* Total Attrition from ALL Employee */
@@ -47,7 +47,7 @@ SELECT
 		(SELECT COUNT(attrition) 
 	   	 FROM hrdata 
 	     WHERE attrition='Yes')) * 100
-		,2) as percentage
+		,2) AS percentage
 FROM hrdata
 WHERE attrition ='Yes'
 GROUP BY job_role
@@ -64,7 +64,7 @@ GROUP BY gender;
 /* Total Employee Active each Job Role */
 SELECT 
 	job_role,
-	SUM(employee_count) as Total_Active
+	SUM(employee_count) AS Total_Active
 FROM hrdata
 WHERE attrition = 'No'
 GROUP BY job_role
@@ -76,7 +76,7 @@ SELECT * FROM CROSSTAB($$
 	SELECT
 		department,
 		business_travel,
-		SUM(employee_count) as Total
+		SUM(employee_count) AS Total
 	FROM hrdata
 	GROUP BY department, business_travel
 	ORDER BY department, Total DESC
@@ -91,7 +91,7 @@ SELECT * FROM CROSSTAB($$
 	SELECT
 		department,
 		education,
-		SUM(employee_count) as Total
+		SUM(employee_count) AS Total
 	FROM hrdata
 	GROUP BY department, education
 	ORDER BY department, Total DESC
